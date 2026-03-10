@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="componentes">
+                <label for="cajaTexto">Escribe algo y presiona Enter:</label>
+
+        <input type="text" id="cajaTexto" placeholder="Escribe y presiona Enter...">
+        
+        <button id="btnColor">Cambiar Color</button>
+    </div>
+
+    <script>
+        const cajaTexto = document.getElementById('cajaTexto');
+        cajaTexto.addEventListener('keydown', (evento) => {
+            if (evento.key === 'Enter') {
+                alert(cajaTexto.value);
+            }
+        });
+
+        const btnColor = document.getElementById('btnColor');
+        let estadoColor = 0;
+
+        btnColor.addEventListener('click', () => {
+            estadoColor++;
+            if (estadoColor > 2) estadoColor = 0;
+            if (estadoColor === 0) {
+                document.body.style.backgroundColor = 'white';
+                document.body.style.color = 'black';
+            } else if (estadoColor === 1) {
+                document.body.style.backgroundColor = 'black';
+                document.body.style.color = 'white';
+            } else if (estadoColor === 2) {
+                document.body.style.backgroundColor = 'lightblue';
+                document.body.style.color = 'red';
+            }
+        });
+    </script>
+</html>
